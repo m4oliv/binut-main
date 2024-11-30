@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(to right, #f0f4f8, #e8f0f4);
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+        }
+        .left-section {
+            background: #1a1a1a;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            position: relative;
+        }
+        .left-section h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .left-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: left;
+        }
+        .testimonial p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .testimonial .author {
+            display: flex;
+            align-items: center;
+        }
+        .testimonial .author img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .right-section {
+            background: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .right-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select {
+            width: 105%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .cliente{
+            width: 92%;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            align-self: center;
+        }
+        .form-group .toggle-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .form-group .toggle-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group .toggle-buttons button.active {
+            background: #000;
+            color: white;
+        }
+        .form-group .toggle-buttons button:not(:last-child) {
+            margin-right: 10px;
+        }
+        .form-group .submit-button {
+            width: 100%;
+            padding: 15px;
+            background: #318549;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .form-group .login-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .form-group .login-link a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-section, .right-section {
+                border-radius: 0;
+                padding: 20px;
+            }
+
+         .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha o conteúdo no centro */
+}
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-section">
+            <h1>Saúde & Bem-estar caminhando juntos!</h1>
+            <p>Binut, uma plataforma desenvolvida para nutricionistas e pessoas determinadas!</p>
+            <div class="testimonial">
+                <p>Ser Binut é ser 2x nutrido! 'Bi' de dois e 'Nut' de alimento: conectamos nutricionistas e clientes, duas vidas importantes unidas pela nutrição.
+                </p>
+                <div class="author">
+                    <img alt="Maria Rita" src="images/rita.jpeg"/>
+                    <div>
+                        <strong>Maria Oliveira</strong><br/>
+                        Fundadora, time de desenvolvedores
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <h2>Vamos criar uma conta?</h2>
+            <form action="login_nutri.php" method="POST">
+                <div class="form-group">
+                    <div class="toggle-buttons">
+                        <button class="active" onclick="showNutritionistaFields(); return false;">Nutricionista</button>
+                        <button onclick="showClienteFields(); return false;">Cliente</button>
+                    </div>
+                </div>
+                
+                <div class="nutricionista">
+                    <div class="form-group">
+                        <input name="email_nutri" placeholder="Email" type="email" required/>
+                    </div>
+                    <div class="form-group">
+                        <input name="senha_nutri" placeholder="Senha" type="password" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="submit-button" name="submit" value="Conecte-se">
+                    </div>
+                </div>
+            </form>
+            <form action="login_cliente.php" method="POST">
+                <div class="cliente" style="display:none;">
+                    <div class="form-group">
+                        <input name="email_cliente" placeholder="Email" type="email" required/>
+                    </div>
+                    <div class="form-group">
+                        <input name="senha_cliente" placeholder="Senha" type="password" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="submit-button" name="submit" value="Conecte-se">
+                    </div>
+                </div>
+            </form>
+                <div class="form-group login-link">
+                    <p>Não tem conta? <a href="cadastro_login.html">Crie uma!</a></p>
+                </div>
+        </div>
+    </div>
+    <script>
+        function showNutritionistaFields() {
+            document.querySelector('.nutricionista').style.display = 'block';
+            document.querySelector('.cliente').style.display = 'none';
+            document.querySelector('.toggle-buttons button.active').classList.remove('active');
+            document.querySelector('.toggle-buttons button:nth-child(1)').classList.add('active');
+        }
+
+        function showClienteFields() {
+            document.querySelector('.cliente').style.display = 'block';
+            document.querySelector('.nutricionista').style.display = 'none';
+            document.querySelector('.toggle-buttons button.active').classList.remove('active');
+            document.querySelector('.toggle-buttons button:nth-child(2)').classList.add('active');
+        }
+        // Chama função showNutritionistaFields() para exibir os campos da nutrição por padrão
+        showNutritionistaFields(); 
+    </script>
+</body>
+</html>
