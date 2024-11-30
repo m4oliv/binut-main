@@ -124,7 +124,7 @@ html {
 /* Home */
 .home {
     display: flex;
-    background: url(images/fotopretos.png) no-repeat;
+    background: url(fotopretos.png) no-repeat;
     background-size: cover;
     height: 100vh;
     color: #fff;
